@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css";
 import { hover } from "@testing-library/user-event/dist/hover";
+import TimeList from "./TimeList";
 
 var Interval;
 
@@ -24,13 +25,13 @@ class Timer extends React.Component {
         this.setState({
           second: this.state.second + 1,
         });
-        if (this.state.second === 60) {
+        if (this.state.second === 59) {
           this.setState({
             second: 0,
             minute: this.state.minute + 1,
           });
         }
-        if (this.state.minute === 60) {
+        if (this.state.minute === 59) {
           this.setState({
             minute: 0,
             hour: this.state.minute + 1,
@@ -53,13 +54,22 @@ class Timer extends React.Component {
       second: 0,
     });
   };
+  handleSaveTime = () => {
+    let h = this.state.hour;
+    let m = this.state.minute;
+    let s = this.state.second;
+    let newTime = `${h > 9 ? h : "0" + h}:${m > 9 ? m : "0" + m}:${
+      s > 9 ? s : "0" + s
+    }`;
+    this.props.setTimeArr([...this.props.timeArr, newTime]);
+  };
   render() {
     let h = this.state.hour;
     let m = this.state.minute;
     let s = this.state.second;
     return (
       <>
-        <h2 className="timer">
+        <h2 className="timer" onClick={this.handleSaveTime}>
           {this.state.time}
           {`${h > 9 ? h : "0" + h}:${m > 9 ? m : "0" + m}:${
             s > 9 ? s : "0" + s
@@ -68,6 +78,14 @@ class Timer extends React.Component {
         <button
           className="action-button change-title-button"
           onClick={this.props.handleSetTitle}
+          style={{
+            background: this.props.isLight
+              ? "linear-gradient(to right, #9d50bb, #6e48aa)"
+              : "linear-gradient(to right, #da22ff, #9733ee)",
+            border: this.props.isLight
+              ? "2px solid #6e48aa"
+              : "2px solid #9733ee",
+          }}
         >
           {this.props.buttonText}
         </button>
@@ -91,6 +109,7 @@ class Timer extends React.Component {
             reset
           </span>
         </div>
+        <TimeList>{this.props.timeArr}</TimeList>
       </>
     );
   }
