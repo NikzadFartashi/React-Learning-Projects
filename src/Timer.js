@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./style.css";
 import { hover } from "@testing-library/user-event/dist/hover";
 import TimeList from "./TimeList";
+import { TestContex } from "./testContex";
 
 var Interval;
 
@@ -16,6 +17,7 @@ class Timer extends React.Component {
       isStart: false,
     };
   }
+  static contextType = TestContex;
   startInterval = () => {
     if (this.state.isStart === false) {
       this.setState({
@@ -69,7 +71,11 @@ class Timer extends React.Component {
     let s = this.state.second;
     return (
       <>
-        <h2 className="timer" onClick={this.handleSaveTime}>
+        <h2
+          className="timer"
+          onClick={this.handleSaveTime}
+          style={{ color: this.context }}
+        >
           {this.state.time}
           {`${h > 9 ? h : "0" + h}:${m > 9 ? m : "0" + m}:${
             s > 9 ? s : "0" + s

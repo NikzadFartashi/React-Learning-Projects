@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Hello from "./Hello";
 import Timer from "./Timer";
 import TimeList from "./TimeList";
+import { TestContex } from "./testContex";
 
 // class App extends React.Component {
 //   constructor() {
@@ -68,22 +69,24 @@ const App = () => {
   const currentTheme = isLight ? themes.light : themes.dark;
 
   return (
-    <div
-      className="main"
-      style={{
-        background: currentTheme.background,
-        color: currentTheme.textColor,
-      }}
-    >
-      <Hello title={title} />
-      <Timer
-        timeArr={timeArr}
-        setTimeArr={setTimeArr}
-        handleSetTitle={handleSetTitle}
-        buttonText={buttonText}
-        isLight={isLight}
-      />
-    </div>
+    <TestContex.Provider value="white">
+      <div
+        className="main"
+        style={{
+          background: currentTheme.background,
+          color: currentTheme.textColor,
+        }}
+      >
+        <Hello title={title} />
+        <Timer
+          timeArr={timeArr}
+          setTimeArr={setTimeArr}
+          handleSetTitle={handleSetTitle}
+          buttonText={buttonText}
+          isLight={isLight}
+        />
+      </div>
+    </TestContex.Provider>
   );
 };
 
