@@ -156,6 +156,18 @@ h1 {
   color: #ffd700;
 }
 
+.main_time_list {
+  margin-top: 30px;
+}
+
+.time_item {
+  background: linear-gradient(to right, #ffff00, #ff8c00);
+  color: rgb(54, 54, 54);
+  margin: 10px 150px;
+  border-radius: 30px;
+  text-shadow: 50px;
+}
+
 @media (max-width: 600px) {
   .main {
     padding: 20px;

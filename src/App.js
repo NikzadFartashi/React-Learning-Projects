@@ -44,7 +44,7 @@ const App = () => {
   const [title, setTitle] = useState("Stopwatch");
   const [buttonText, setButtonText] = useState("تغییر عنوان به فارسی");
   const [isLight, setIsLight] = useState(false);
-  const [timeArr, setTimeArr] = useState(["00 : 12 : 33"]);
+  const [timeArr, setTimeArr] = useState([]);
 
   const themes = {
     light: {
@@ -69,7 +69,7 @@ const App = () => {
   const currentTheme = isLight ? themes.light : themes.dark;
 
   return (
-    <TestContex.Provider value="white">
+    <TestContex.Provider value={{ timeArr, setTimeArr }}>
       <div
         className="main"
         style={{
@@ -79,12 +79,11 @@ const App = () => {
       >
         <Hello title={title} />
         <Timer
-          timeArr={timeArr}
-          setTimeArr={setTimeArr}
           handleSetTitle={handleSetTitle}
           buttonText={buttonText}
           isLight={isLight}
         />
+        <TimeList />
       </div>
     </TestContex.Provider>
   );
