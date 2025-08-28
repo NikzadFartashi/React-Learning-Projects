@@ -1,0 +1,158 @@
+/* حالت دارک مود */
+body.dark-mode {
+  background: rgb(9, 49, 28);
+  background: linear-gradient(
+    90deg,
+    rgb(6, 46, 25) 0%,
+    hsla(186, 100%, 20%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    rgb(4, 37, 36) 0%,
+    hsla(186, 100%, 15%, 1) 100%
+  );
+  color: #ffffff;
+}
+
+body.dark-mode .bg-light {
+  background-color: #2d3748 !important;
+  color: #e2e8f0;
+}
+
+body.dark-mode .list-group-item {
+  background-color: #2d3748;
+  color: #e2e8f0;
+  border-color: #4a5568;
+}
+
+body.dark-mode .list-group-item-success {
+  background-color: #22543d;
+  color: #9ae6b4;
+  border-color: #38a169;
+}
+
+body.dark-mode .form-control {
+  background-color: #2d3748;
+  color: #e2e8f0;
+  border-color: #4a5568;
+}
+
+body.dark-mode .form-control:focus {
+  background-color: #2d3748;
+  color: #e2e8f0;
+  border-color: #63b3ed;
+  box-shadow: 0 0 0 0.2rem rgba(99, 179, 237, 0.25);
+}
+
+body.dark-mode .btn-success {
+  background-color: #38a169;
+  border-color: #38a169;
+}
+
+body.dark-mode .btn-success:hover {
+  background-color: #2f855a;
+  border-color: #2f855a;
+}
+
+/* دکمه تغییر حالت دارک/لایت */
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 300ms ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+}
+
+body.dark-mode .theme-toggle-btn {
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode .theme-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* سایر استایل‌های موجود شما */
+@font-face {
+  font-family: "BYekan";
+  src: url(fonts/BYekan-webfont.eot) format("eot"),
+    url(fonts/BYekan-webfont.ttf) format("truetype"),
+    url(fonts/BYekan-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+#root {
+  height: 100%;
+}
+
+body {
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(9, 185, 103);
+  background: linear-gradient(
+    90deg,
+    rgb(9, 187, 104) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    rgb(7, 190, 185) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  transition: all 300ms ease;
+}
+
+* {
+  font-family: BYekan;
+  direction: rtl;
+  text-align: right;
+}
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.transition_200 {
+  transition: all 200ms ease;
+}
+
+.text_hover_shadow:hover {
+  text-shadow: 0 0 3px black;
+}
+
+body.dark-mode .text_hover_shadow:hover {
+  text-shadow: 0 0 3px white;
+}
+
+.text_shadow {
+  text-shadow: 0 0 8px rgb(14, 215, 241);
+}
+
+body.dark-mode .text_shadow {
+  text-shadow: 0 0 8px rgb(14, 150, 241);
+}
+
+.h_fit {
+  height: fit-content;
+}
